@@ -29,7 +29,7 @@ type PokemonType = {
 	imperviousToAttacksFrom?: PokemonTypes[];
 };
 
-type OpponentType = PokemonType | undefined;
+type OpponentType = PokemonType;
 
 type PokedexType = PokemonType[];
 
@@ -58,7 +58,7 @@ const pokedex: PokedexType = [
 	{
 		type: "electric",
 		icon: "",
-		attackNotVeryEffectiveAgainst: ["electric", "grass", "dragon"],
+		attackNotVeryEffectiveAgainst: ["electric", "grass", "dragon", "ground"],
 		defenseNotVeryEffectiveAgainst: ["ground"],
 		imperviousToAttacksFrom: [],
 	},
@@ -184,8 +184,58 @@ const pokedex: PokedexType = [
 	},
 ];
 
+const shouldInclude = (item: PokemonType, opponent: PokemonType, property: string) => {
+	if (opponent[property].includes(item.type)) {
+		return true;
+	} else {
+		return false;
+	}
+};
+
+const filteredArray = (array: PokedexType, opponent: PokemonType, property: string) => {
+	return array.filter((item) => shouldInclude(item, opponent, property));
+};
+
+const displayResults = (array: PokedexType, oppponent: PokemonType, property: string) => {
+	const newArray = filteredArray(array, oppponent, property);
+
+	return (
+		<>
+			{newArray.map((item) => (
+				<button>{item.type}</button>
+			))}
+		</>
+	);
+};
+
+const primePick = (
+	item: PokemonType,
+	opponent: PokemonType,
+	property1: string,
+	property2: string
+) => {
+	if (
+		shouldInclude(item, opponent, property1) &&
+		shouldInclude(item, opponent, property2)
+	) {
+		return (
+			<>
+				<button>{item.type}</button>
+			</>
+		);
+	} else {
+		return null;
+	}
+};
+
 function App() {
-	const [currentOpponent, setCurrentOpponent] = useState<OpponentType>();
+	const [currentOpponent, setCurrentOpponent] = useState<OpponentType>({
+		type: "normal",
+		icon: "",
+		attackNotVeryEffectiveAgainst: ["rock", "steel"],
+		defenseNotVeryEffectiveAgainst: ["fighting"],
+		imperviousToAttacksFrom: ["ghost"],
+	});
 
 	return (
 		<>
@@ -194,25 +244,22 @@ function App() {
 			<p>{currentOpponent && currentOpponent.type}</p>
 			<div>
 				<h3>Defense Advantage:</h3>
-				{pokedex
-					.filter((item) =>
-						currentOpponent.attackNotVeryEffectiveAgainst.includes(item.type)
-					)
-					.map((pokemon) => {
-						return <button>{pokemon.type}</button>;
-					})}
+				{displayResults(pokedex, currentOpponent, "attackNotVeryEffectiveAgainst")}
 			</div>
 			<div>
 				<h3>Attack Advantage:</h3>
-				{pokedex
-					.filter((item) =>
-						currentOpponent.defenseNotVeryEffectiveAgainst.includes(item.type)
-					)
-					.map((pokemon) => {
-						return <button>{pokemon.type}</button>;
-					})}
+				{displayResults(pokedex, currentOpponent, "defenseNotVeryEffectiveAgainst")}
 			</div>
 			<br />
+			<h3>Prime Pick:</h3>
+			{pokedex.map((item) =>
+				primePick(
+					item,
+					currentOpponent,
+					"defenseNotVeryEffectiveAgainst",
+					"attackNotVeryEffectiveAgainst"
+				)
+			)}
 			<h3>Choose an opponent type</h3>
 			<div>
 				{pokedex.map((pokemon) => {
