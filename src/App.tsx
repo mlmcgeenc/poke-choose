@@ -1,38 +1,7 @@
 import { useState } from "react";
 import pokedex from "./data/pokedex";
+import { PokemonType, PokedexType, OpponentType } from "./types";
 import "./App.css";
-
-type PokemonTypes =
-	| "normal"
-	| "fire"
-	| "water"
-	| "electric"
-	| "grass"
-	| "ice"
-	| "fighting"
-	| "poison"
-	| "ground"
-	| "flying"
-	| "psychic"
-	| "bug"
-	| "rock"
-	| "ghost"
-	| "dragon"
-	| "dark"
-	| "steel"
-	| "fairy";
-
-type PokemonType = {
-	type: PokemonTypes;
-	icon: string;
-	attackNotVeryEffectiveAgainst?: PokemonTypes[];
-	defenseNotVeryEffectiveAgainst?: PokemonTypes[];
-	imperviousToAttacksFrom?: PokemonTypes[];
-};
-
-type OpponentType = PokemonType;
-
-type PokedexType = PokemonType[];
 
 const PokeButton = ({ type }) => {
 	console.log("Poketype: ", type);
