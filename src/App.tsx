@@ -184,7 +184,22 @@ const pokedex: PokedexType = [
 	},
 ];
 
-const shouldInclude = (item: PokemonType, opponent: PokemonType, property: string) => {
+const PokeButton = ({ type }) => {
+	console.log("Poketype: ", type);
+	return (
+		<>
+			<button className='max-w-1/4 min-w-16 min-h-16 bg-slate-200 m-2 rounded-full'>
+				<p>{type}</p>
+			</button>
+		</>
+	);
+};
+
+const shouldInclude = (
+	item: PokemonType,
+	opponent: PokemonType,
+	property: string
+) => {
 	if (opponent[property].includes(item.type)) {
 		return true;
 	} else {
@@ -192,17 +207,25 @@ const shouldInclude = (item: PokemonType, opponent: PokemonType, property: strin
 	}
 };
 
-const filteredArray = (array: PokedexType, opponent: PokemonType, property: string) => {
+const filteredArray = (
+	array: PokedexType,
+	opponent: PokemonType,
+	property: string
+) => {
 	return array.filter((item) => shouldInclude(item, opponent, property));
 };
 
-const displayResults = (array: PokedexType, oppponent: PokemonType, property: string) => {
+const displayResults = (
+	array: PokedexType,
+	oppponent: PokemonType,
+	property: string
+) => {
 	const newArray = filteredArray(array, oppponent, property);
 
 	return (
 		<>
 			{newArray.map((item) => (
-				<button>{item.type}</button>
+				<PokeButton type={item.type} />
 			))}
 		</>
 	);
@@ -220,7 +243,7 @@ const primePick = (
 	) {
 		return (
 			<>
-				<button>{item.type}</button>
+				<PokeButton type={item.type} />
 			</>
 		);
 	} else {
@@ -238,8 +261,8 @@ function App() {
 	});
 
 	return (
-		<>
-			<h1 className="text-3xl underline">Poke-choose</h1>
+		<body className='max-w-[960px] m-auto bg-slate-500'>
+			<h1 className='text-3xl underline'>Poke-choose</h1>
 			<h3>Current opponent type:</h3>
 			<p>{currentOpponent && currentOpponent.type}</p>
 			<div>
@@ -265,12 +288,12 @@ function App() {
 				{pokedex.map((pokemon) => {
 					return (
 						<button onClick={() => setCurrentOpponent(pokemon)}>
-							{pokemon.type}
+							<PokeButton type={pokemon.type} />
 						</button>
 					);
 				})}
 			</div>
-		</>
+		</body>
 	);
 }
 
