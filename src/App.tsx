@@ -239,7 +239,7 @@ function App() {
 
 	return (
 		<>
-			<h1>Poke-choose</h1>
+			<h1 className="text-3xl underline">Poke-choose</h1>
 			<h3>Current opponent type:</h3>
 			<p>{currentOpponent && currentOpponent.type}</p>
 			<div>
