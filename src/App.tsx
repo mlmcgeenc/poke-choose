@@ -4,7 +4,6 @@ import { PokemonType, PokedexType, OpponentType } from "./types";
 import "./App.css";
 
 const PokeButton = ({ type }) => {
-	console.log("Poketype: ", type);
 	return (
 		<>
 			<button className='max-w-1/4 min-w-16 min-h-16 bg-slate-200 m-2 rounded-full'>
@@ -14,41 +13,26 @@ const PokeButton = ({ type }) => {
 	);
 };
 
-const shouldInclude = (
-	item: PokemonType,
-	opponent: PokemonType,
-	property: string
-) => {
-	if (opponent[property].includes(item.type)) {
-		return true;
-	} else {
-		return false;
-	}
-};
+const shouldInclude = (item: PokemonType, opponent: PokemonType, property: string) =>
+	opponent[property].includes(item.type);
 
 const filteredArray = (
 	array: PokedexType,
 	opponent: PokemonType,
 	property: string
-) => {
-	return array.filter((item) => shouldInclude(item, opponent, property));
-};
+) => array.filter((item) => shouldInclude(item, opponent, property));
 
 const displayResults = (
 	array: PokedexType,
-	oppponent: PokemonType,
+	opponent: PokemonType,
 	property: string
-) => {
-	const newArray = filteredArray(array, oppponent, property);
-
-	return (
-		<>
-			{newArray.map((item) => (
-				<PokeButton type={item.type} />
-			))}
-		</>
-	);
-};
+) => (
+	<>
+		{filteredArray(array, opponent, property).map((item) => (
+			<PokeButton key={item.type} type={item.type} />
+		))}
+	</>
+);
 
 const primePick = (
 	item: PokemonType,
@@ -56,18 +40,12 @@ const primePick = (
 	property1: string,
 	property2: string
 ) => {
-	if (
-		shouldInclude(item, opponent, property1) &&
-		shouldInclude(item, opponent, property2)
-	) {
-		return (
-			<>
-				<PokeButton type={item.type} />
-			</>
-		);
-	} else {
-		return null;
-	}
+	shouldInclude(item, opponent, property1) &&
+	shouldInclude(item, opponent, property2) ? (
+		<>
+			<PokeButton type={item.type} />
+		</>
+	) : null;
 };
 
 function App() {
