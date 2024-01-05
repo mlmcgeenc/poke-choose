@@ -1,3 +1,5 @@
+import { PokedexType } from "../types";
+
 const pokedex: PokedexType = [
 	{
 		type: "normal",
