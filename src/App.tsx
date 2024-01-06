@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import PokeButton from "./components/PokeButton.tsx";
 import pokedex from "./data/pokedex";
-import { OpponentType } from "./types";
+import { OpponentType, PokemonType } from "./types";
 import displayResults from "./utils/displayResults.tsx";
 import topPicks from "./utils/topPicks.tsx";
 
@@ -16,6 +16,10 @@ function App() {
 		defenseNotVeryEffectiveAgainst: ["fighting"],
 		imperviousToAttacksFrom: ["ghost"],
 	});
+
+	const handleSetOpponent = (pokemon: PokemonType) => {
+		setCurrentOpponent(pokemon);
+	};
 
 	return (
 		<body className='max-w-[960px] m-auto bg-slate-500'>
@@ -40,13 +44,14 @@ function App() {
 			)}
 			<h3>Choose an opponent type</h3>
 			<div>
-				{pokedex.map((pokemon) => {
-					return (
-						<button onClick={() => setCurrentOpponent(pokemon)}>
-							<PokeButton key={`${pokemon.type}-opponent-pick`} pokeType={pokemon.type} />
-						</button>
-					);
-				})}
+				{pokedex.map((pokemon) => (
+					<PokeButton
+						key={`${pokemon.type}-opponent-pick`}
+						pokemon={pokemon}
+						pokeType={pokemon.type}
+						handleClick={handleSetOpponent}
+					/>
+				))}
 			</div>
 		</body>
 	);
