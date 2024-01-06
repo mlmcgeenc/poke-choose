@@ -2,51 +2,41 @@ import { useState } from "react";
 import pokedex from "./data/pokedex";
 import { PokemonType, PokedexType, OpponentType } from "./types";
 import "./App.css";
+import PokeButton from "./components/PokeButton.tsx";
 
-const PokeButton = ({ type }) => {
-	return (
-		<>
-			<button className='max-w-1/4 min-w-16 min-h-16 bg-slate-200 m-2 rounded-full'>
-				<p>{type}</p>
-			</button>
-		</>
-	);
-};
-
-const shouldInclude = (item: PokemonType, opponent: PokemonType, property: string) =>
-	opponent[property].includes(item.type);
+const shouldInclude = (item: PokemonType, opponent: PokemonType, property: keyof PokemonType) =>
+	opponent[property]?.includes(item.type) ?? false;
 
 const filteredArray = (
 	array: PokedexType,
 	opponent: PokemonType,
-	property: string
+	property: keyof PokemonType
 ) => array.filter((item) => shouldInclude(item, opponent, property));
 
 const displayResults = (
 	array: PokedexType,
 	opponent: PokemonType,
-	property: string
+	property: keyof PokemonType
 ) => (
 	<>
 		{filteredArray(array, opponent, property).map((item) => (
-			<PokeButton key={item.type} type={item.type} />
+			<PokeButton key={`${item.type}-${property}`} pokeType={item.type} />
 		))}
 	</>
 );
 
-const primePick = (
-	item: PokemonType,
+const topPicks = (
+	array: PokedexType,
 	opponent: PokemonType,
-	property1: string,
-	property2: string
-) => {
-	shouldInclude(item, opponent, property1) &&
-	shouldInclude(item, opponent, property2) ? (
-		<>
-			<PokeButton type={item.type} />
-		</>
-	) : null;
-};
+	property1: keyof PokemonType,
+	property2: keyof PokemonType
+) =>
+	array.map((item) =>
+		shouldInclude(item, opponent, property1) &&
+		shouldInclude(item, opponent, property2) ? (
+			<PokeButton key={`${item.type}-top-pick`} pokeType={item.type} />
+		) : null
+	);
 
 function App() {
 	const [currentOpponent, setCurrentOpponent] = useState<OpponentType>({
@@ -72,20 +62,18 @@ function App() {
 			</div>
 			<br />
 			<h3>Prime Pick:</h3>
-			{pokedex.map((item) =>
-				primePick(
-					item,
-					currentOpponent,
-					"defenseNotVeryEffectiveAgainst",
-					"attackNotVeryEffectiveAgainst"
-				)
+			{topPicks(
+				pokedex,
+				currentOpponent,
+				"defenseNotVeryEffectiveAgainst",
+				"attackNotVeryEffectiveAgainst"
 			)}
 			<h3>Choose an opponent type</h3>
 			<div>
 				{pokedex.map((pokemon) => {
 					return (
 						<button onClick={() => setCurrentOpponent(pokemon)}>
-							<PokeButton type={pokemon.type} />
+							<PokeButton key={`${pokemon.type}-opponent-pick`} pokeType={pokemon.type} />
 						</button>
 					);
 				})}
