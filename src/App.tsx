@@ -1,42 +1,12 @@
-import { useState } from "react";
-import pokedex from "./data/pokedex";
-import { PokemonType, PokedexType, OpponentType } from "./types";
 import "./App.css";
+
+import { useState } from "react";
+
 import PokeButton from "./components/PokeButton.tsx";
-
-const shouldInclude = (item: PokemonType, opponent: PokemonType, property: keyof PokemonType) =>
-	opponent[property]?.includes(item.type) ?? false;
-
-const filteredArray = (
-	array: PokedexType,
-	opponent: PokemonType,
-	property: keyof PokemonType
-) => array.filter((item) => shouldInclude(item, opponent, property));
-
-const displayResults = (
-	array: PokedexType,
-	opponent: PokemonType,
-	property: keyof PokemonType
-) => (
-	<>
-		{filteredArray(array, opponent, property).map((item) => (
-			<PokeButton key={`${item.type}-${property}`} pokeType={item.type} />
-		))}
-	</>
-);
-
-const topPicks = (
-	array: PokedexType,
-	opponent: PokemonType,
-	property1: keyof PokemonType,
-	property2: keyof PokemonType
-) =>
-	array.map((item) =>
-		shouldInclude(item, opponent, property1) &&
-		shouldInclude(item, opponent, property2) ? (
-			<PokeButton key={`${item.type}-top-pick`} pokeType={item.type} />
-		) : null
-	);
+import pokedex from "./data/pokedex";
+import { OpponentType } from "./types";
+import displayResults from "./utils/displayResults.tsx";
+import topPicks from "./utils/topPicks.tsx";
 
 function App() {
 	const [currentOpponent, setCurrentOpponent] = useState<OpponentType>({
