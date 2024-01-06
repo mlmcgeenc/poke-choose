@@ -30,4 +30,16 @@ type OpponentType = PokemonType;
 
 type PokedexType = PokemonType[];
 
-export type { PokemonTypes, PokemonType, OpponentType, PokedexType };
+type PokeButtonPropsType = {
+	pokemon: PokemonType;
+	pokeType: string;
+	handleClick: (pokemon: PokemonType) => void;
+}
+
+export type {
+	OpponentType,
+	PokeButtonPropsType,
+	PokedexType,
+	PokemonType,
+	PokemonTypes,
+};
