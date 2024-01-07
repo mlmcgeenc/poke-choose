@@ -1,24 +1,24 @@
-import { ReactElement } from "react";
+import { ReactElement } from 'react';
 
 type PokemonTypesTuple =
-	| "normal"
-	| "fire"
-	| "water"
-	| "electric"
-	| "grass"
-	| "ice"
-	| "fighting"
-	| "poison"
-	| "ground"
-	| "flying"
-	| "psychic"
-	| "bug"
-	| "rock"
-	| "ghost"
-	| "dragon"
-	| "dark"
-	| "steel"
-	| "fairy";
+	| 'normal'
+	| 'fire'
+	| 'water'
+	| 'electric'
+	| 'grass'
+	| 'ice'
+	| 'fighting'
+	| 'poison'
+	| 'ground'
+	| 'flying'
+	| 'psychic'
+	| 'bug'
+	| 'rock'
+	| 'ghost'
+	| 'dragon'
+	| 'dark'
+	| 'steel'
+	| 'fairy';
 
 type PokemonType = {
 	type: PokemonTypesTuple;
@@ -47,12 +47,20 @@ type SelectorSheetType = {
 	handleClick: (pokemon: PokemonType) => void;
 };
 
+type DisplayRowType = {
+	rowHeader: string;
+	pokedex: PokedexType;
+	currentOpponent: OpponentType;
+	condition: keyof PokemonType;
+};
+
 export type {
+	DisplayRowType,
 	IconPropsType,
 	OpponentType,
 	PokedexType,
 	PokemonType,
 	PokemonTypesTuple,
-  SelectorSheetType,
+	SelectorSheetType,
 	SelectType,
 };
