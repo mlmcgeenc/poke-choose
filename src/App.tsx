@@ -4,6 +4,7 @@ import { useState } from 'react';
 import React from 'react';
 
 import DisplayRow from './components/DisplayRow.tsx';
+import FireSVG from './components/icons/FireSVG.tsx';
 import SelectorSheet from './components/SelectorSheet.tsx';
 import TopPicks from './components/TopPicks.tsx';
 import pokedex from './data/pokedex';
@@ -43,7 +44,11 @@ function App() {
 				condition1={'defenseNotVeryEffectiveAgainst'}
 				condition2={'attackNotVeryEffectiveAgainst'}
 			/>
-			<SelectorSheet array={pokedex} handleClick={handleSetOpponent} currentOpponent={currentOpponent}/>
+			<SelectorSheet
+				array={pokedex}
+				handleClick={handleSetOpponent}
+				currentOpponent={currentOpponent}
+			/>
 		</body>
 	);
 }
