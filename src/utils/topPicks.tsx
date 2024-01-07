@@ -1,4 +1,4 @@
-import PokeButton from "../components/PokeButton";
+import Icon from "../components/Icon.tsx";
 import { PokedexType, PokemonType } from "../types";
 import shouldInclude from "./shouldInclude";
 
@@ -11,7 +11,7 @@ const topPicks = (
 	array.map((item) =>
 		shouldInclude(item, opponent, property1) &&
 		shouldInclude(item, opponent, property2) ? (
-			<PokeButton key={`${item.type}-top-pick`} pokeType={item.type} />
+			<Icon key={`${item.type}-top-pick`} pokemonType={item.type} />
 		) : null
 	);
 

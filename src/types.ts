@@ -1,4 +1,6 @@
-type PokemonTypes =
+import { ReactElement } from "react";
+
+type PokemonTypesTuple =
 	| "normal"
 	| "fire"
 	| "water"
@@ -19,27 +21,38 @@ type PokemonTypes =
 	| "fairy";
 
 type PokemonType = {
-	type: PokemonTypes;
+	type: PokemonTypesTuple;
 	icon: string;
-	attackNotVeryEffectiveAgainst?: PokemonTypes[];
-	defenseNotVeryEffectiveAgainst?: PokemonTypes[];
-	imperviousToAttacksFrom?: PokemonTypes[];
+	attackNotVeryEffectiveAgainst?: PokemonTypesTuple[];
+	defenseNotVeryEffectiveAgainst?: PokemonTypesTuple[];
+	imperviousToAttacksFrom?: PokemonTypesTuple[];
 };
 
 type OpponentType = PokemonType;
 
 type PokedexType = PokemonType[];
 
-type PokeButtonPropsType = {
-	pokemon: PokemonType;
-	pokeType: string;
+type IconPropsType = {
+	pokemonType: PokemonTypesTuple;
+};
+
+type SelectType = {
 	handleClick: (pokemon: PokemonType) => void;
-}
+	pokemon: PokemonType;
+	children: ReactElement;
+};
+
+type SelectorSheetType = {
+	array: PokedexType;
+	handleClick: (pokemon: PokemonType) => void;
+};
 
 export type {
+	IconPropsType,
 	OpponentType,
-	PokeButtonPropsType,
 	PokedexType,
 	PokemonType,
-	PokemonTypes,
+	PokemonTypesTuple,
+  SelectorSheetType,
+	SelectType,
 };
