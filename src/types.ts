@@ -45,6 +45,7 @@ type SelectType = {
 type SelectorSheetType = {
 	array: PokedexType;
 	handleClick: (pokemon: PokemonType) => void;
+  currentOpponent: PokemonType;
 };
 
 type DisplayRowType = {
