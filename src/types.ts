@@ -30,6 +30,10 @@ type PokemonType = {
 
 type OpponentType = PokemonType;
 
+type CurrentOpponentComponentType = {
+	opponentType: PokemonTypesTuple;
+};
+
 type PokedexType = PokemonType[];
 
 type IconPropsType = {
@@ -45,7 +49,7 @@ type SelectType = {
 type SelectorSheetType = {
 	array: PokedexType;
 	handleClick: (pokemon: PokemonType) => void;
-  currentOpponent: PokemonType;
+	currentOpponent: PokemonType;
 };
 
 type DisplayRowType = {
@@ -56,6 +60,7 @@ type DisplayRowType = {
 };
 
 export type {
+	CurrentOpponentComponentType,
 	DisplayRowType,
 	IconPropsType,
 	OpponentType,
