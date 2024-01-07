@@ -5,9 +5,9 @@ import React from 'react';
 
 import DisplayRow from './components/DisplayRow.tsx';
 import SelectorSheet from './components/SelectorSheet.tsx';
+import TopPicks from './components/TopPicks.tsx';
 import pokedex from './data/pokedex';
 import { OpponentType, PokemonType } from './types';
-import topPicks from './utils/topPicks.tsx';
 
 function App() {
 	const [currentOpponent, setCurrentOpponent] = useState<OpponentType>({
@@ -23,7 +23,7 @@ function App() {
 	};
 
 	return (
-		<body className='max-w-[960px] m-auto bg-slate-500'>
+		<body className='max-w-[960px] h-dvh m-auto bg-slate-500'>
 			<h1 className='text-3xl underline'>Poke-choose</h1>
 			<DisplayRow
 				rowHeader='Defense Advantage'
@@ -37,14 +37,12 @@ function App() {
 				currentOpponent={currentOpponent}
 				condition='defenseNotVeryEffectiveAgainst'
 			/>
-			<br />
-			<h3>Prime Pick:</h3>
-			{topPicks(
-				pokedex,
-				currentOpponent,
-				'defenseNotVeryEffectiveAgainst',
-				'attackNotVeryEffectiveAgainst'
-			)}
+			<TopPicks
+				pokedex={pokedex}
+				currentOpponent={currentOpponent}
+				condition1={'defenseNotVeryEffectiveAgainst'}
+				condition2={'attackNotVeryEffectiveAgainst'}
+			/>
 			<SelectorSheet array={pokedex} handleClick={handleSetOpponent} currentOpponent={currentOpponent}/>
 		</body>
 	);

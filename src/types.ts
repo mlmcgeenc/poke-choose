@@ -59,6 +59,13 @@ type DisplayRowType = {
 	condition: keyof PokemonType;
 };
 
+type TopPicksType = {
+	pokedex: PokedexType;
+	currentOpponent: PokemonType;
+	condition1: keyof PokemonType;
+	condition2: keyof PokemonType;
+};
+
 export type {
 	CurrentOpponentComponentType,
 	DisplayRowType,
@@ -69,4 +76,5 @@ export type {
 	PokemonTypesTuple,
 	SelectorSheetType,
 	SelectType,
+	TopPicksType,
 };
