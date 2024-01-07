@@ -67,13 +67,10 @@ const Icon = ({ pokemonType }: IconPropsType) => {
 	const selectedIcon = iconMap[pokemonType] || <PokeBall />;
 
 	return (
-		<div className='max-w-20 m-2'>
-			<div
-				className={`flex justify-center items-center w-20 aspect-square ${colorMap[pokemonType]} rounded-full`}
-			>
-				{selectedIcon}
-			</div>
-			<div className='m-2 px-1 bg-white rounded-sm'>{pokemonType}</div>
+		<div
+			className={`max-w-20 m-2 flex justify-center items-center w-20 aspect-square ${colorMap[pokemonType]} rounded-full`}
+		>
+			{selectedIcon}
 		</div>
 	);
 };

@@ -4,7 +4,6 @@ import { useState } from 'react';
 import React from 'react';
 
 import DisplayRow from './components/DisplayRow.tsx';
-import FireSVG from './components/icons/FireSVG.tsx';
 import SelectorSheet from './components/SelectorSheet.tsx';
 import TopPicks from './components/TopPicks.tsx';
 import pokedex from './data/pokedex';
