@@ -1,14 +1,14 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { DisplayRowType } from '../types';
 import displayResults from '../utils/displayResults';
 
-const DisplayRow: FC<DisplayRowType> = ({
+const DisplayRow = ({
 	rowHeader,
 	pokedex,
 	currentOpponent,
 	condition,
-}) => {
+}: DisplayRowType) => {
 	return (
 		<>
 			<h3>{rowHeader}:</h3>

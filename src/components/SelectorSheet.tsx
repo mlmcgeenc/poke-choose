@@ -1,16 +1,18 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { SelectorSheetType } from '../types.ts';
+import CurrentOpponent from './CurrentOpponent.tsx';
 import Icon from './Icon.tsx';
 import Select from './Select.tsx';
 
-const SelectorSheet: FC<SelectorSheetType> = ({ array, handleClick, currentOpponent }) => {
+const SelectorSheet = ({
+	array,
+	handleClick,
+	currentOpponent,
+}: SelectorSheetType) => {
 	return (
 		<>
-			<div className='flex items-center h-16 w-full bg-blue-950 rounded-t-xl'>
-				<h2 className='text-white font-extrabold text-lg p-4'>Current Opponent:</h2>
-				<span className='text-lg text-white capitalize'>{currentOpponent.type}</span>
-			</div>
+			<CurrentOpponent opponentType={currentOpponent.type} />
 			<div className='bg-yellow-600'>
 				<h3>Choose an opponent type</h3>
 				<div>

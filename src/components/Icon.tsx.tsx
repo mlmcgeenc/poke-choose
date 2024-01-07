@@ -1,8 +1,8 @@
-import React, { FC } from 'react';
+import React from 'react';
 
 import { IconPropsType } from '../types';
 
-const Icon: FC<IconPropsType> = ({ pokemonType }) => {
+const Icon = ({ pokemonType }: IconPropsType) => {
 	return (
 		<div className='max-w-20 m-2'>
 			<div className='w-16 h-16 relative m-auto bg-slate-200 rounded-full'>
