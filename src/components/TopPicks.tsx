@@ -1,8 +1,9 @@
 import React from 'react';
 
 import { TopPicksType } from '../types.ts';
+import filteredArray from '../utils/filteredArray.ts';
 import shouldInclude from '../utils/shouldInclude.ts';
-import Icon from './Icon.tsx.tsx';
+import Entry from './Entry.tsx';
 
 const TopPicks = ({
 	pokedex,
@@ -12,11 +13,10 @@ const TopPicks = ({
 }: TopPicksType) => (
 	<>
 		<h3>Top Pick:</h3>
-		{pokedex.map((item) =>
-			shouldInclude(item, currentOpponent, condition1) &&
-			shouldInclude(item, currentOpponent, condition2) ? (
-					<Icon key={`${item.type}-top-pick`} pokemonType={item.type} />
-				) : null
+		{filteredArray(pokedex, currentOpponent, condition1, condition2).map((item) =>
+			filteredArray.length > 0 ? (
+				<Entry key={`${item.type}-top-pick`} pokemonType={item.type} />
+			) : null
 		)}
 	</>
 );

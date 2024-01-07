@@ -2,7 +2,7 @@ import React from 'react';
 
 import { SelectorSheetType } from '../types.ts';
 import CurrentOpponent from './CurrentOpponent.tsx';
-import Icon from './Icon.tsx';
+import Entry from './Entry.tsx';
 import Select from './Select.tsx';
 
 const SelectorSheet = ({
@@ -22,7 +22,7 @@ const SelectorSheet = ({
 							handleClick={handleClick}
 							pokemon={pokemon}
 						>
-							<Icon pokemonType={pokemon.type} />
+							<Entry pokemonType={pokemon.type} />
 						</Select>
 					))}
 				</div>
