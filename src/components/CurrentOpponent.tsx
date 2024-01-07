@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { PokemonTypesTuple } from '../types';
+import { CurrentOpponentComponentType } from '../types';
 
 const CurrentOpponent = ({ opponentType }: CurrentOpponentComponentType) => {
 	return (
