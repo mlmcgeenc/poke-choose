@@ -66,6 +66,10 @@ type TopPicksType = {
 	condition2: keyof PokemonType;
 };
 
+type SVGIconPropsType = {
+	size: string | number;
+};
+
 export type {
 	CurrentOpponentComponentType,
 	DisplayRowType,
@@ -76,5 +80,6 @@ export type {
 	PokemonTypesTuple,
 	SelectorSheetType,
 	SelectType,
+	SVGIconPropsType,
 	TopPicksType,
 };
