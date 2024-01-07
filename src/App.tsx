@@ -2,7 +2,7 @@ import "./App.css";
 
 import { useState } from "react";
 
-import PokeButton from "./components/PokeButton.tsx";
+import SelectorSheet from "./components/SelectorSheet.tsx";
 import pokedex from "./data/pokedex";
 import { OpponentType, PokemonType } from "./types";
 import displayResults from "./utils/displayResults.tsx";
@@ -42,17 +42,7 @@ function App() {
 				"defenseNotVeryEffectiveAgainst",
 				"attackNotVeryEffectiveAgainst"
 			)}
-			<h3>Choose an opponent type</h3>
-			<div>
-				{pokedex.map((pokemon) => (
-					<PokeButton
-						key={`${pokemon.type}-opponent-pick`}
-						pokemon={pokemon}
-						pokeType={pokemon.type}
-						handleClick={handleSetOpponent}
-					/>
-				))}
-			</div>
+      <SelectorSheet array={pokedex} handleClick={handleSetOpponent}/>
 		</body>
 	);
 }
