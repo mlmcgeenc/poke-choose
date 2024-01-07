@@ -25,8 +25,6 @@ function App() {
 	return (
 		<body className='max-w-[960px] m-auto bg-slate-500'>
 			<h1 className='text-3xl underline'>Poke-choose</h1>
-			<h3>Current opponent type:</h3>
-			<p>{currentOpponent && currentOpponent.type}</p>
 			<DisplayRow
 				rowHeader='Defense Advantage'
 				pokedex={pokedex}
@@ -47,7 +45,7 @@ function App() {
 				'defenseNotVeryEffectiveAgainst',
 				'attackNotVeryEffectiveAgainst'
 			)}
-			<SelectorSheet array={pokedex} handleClick={handleSetOpponent} />
+			<SelectorSheet array={pokedex} handleClick={handleSetOpponent} currentOpponent={currentOpponent}/>
 		</body>
 	);
 }
