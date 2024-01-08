@@ -1,7 +1,7 @@
 import './App.css';
 
-import { useState } from 'react';
 import React from 'react';
+import { useState } from 'react';
 
 import DisplayRow from './components/DisplayRow.tsx';
 import SelectorSheet from './components/SelectorSheet.tsx';
