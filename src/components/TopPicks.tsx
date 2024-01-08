@@ -12,7 +12,7 @@ const TopPicks = ({
 }: TopPicksType) => (
 	<>
 		<h3>Top Pick:</h3>
-		<div className='flex flex-wrap justify-center'>
+		<div className='flex justify-center flex-wrap'>
 			{pokedex.map((item) =>
 				shouldInclude(item, currentOpponent, condition1) &&
 				shouldInclude(item, currentOpponent, condition2) ? (

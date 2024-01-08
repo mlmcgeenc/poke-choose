@@ -3,9 +3,8 @@ import './App.css';
 import React from 'react';
 import { useState } from 'react';
 
-import DisplayRow from './components/DisplayRow.tsx';
-import SelectorSheet from './components/SelectorSheet.tsx';
-import TopPicks from './components/TopPicks.tsx';
+import ResultsSheet from './components/ResultsSheet.tsx';
+import Selector from './components/Selector.tsx';
 import pokedex from './data/pokedex';
 import { OpponentType, PokemonType } from './types';
 
@@ -17,36 +16,30 @@ function App() {
 		defenseNotVeryEffectiveAgainst: ['fighting'],
 		imperviousToAttacksFrom: ['ghost'],
 	});
+	const [showResults, setShowResults] = useState(false);
 
 	const handleSetOpponent = (pokemon: PokemonType) => {
 		setCurrentOpponent(pokemon);
+		setShowResults(true);
+	};
+
+	const handleToggleShowResults = (showResults: boolean) => {
+		setShowResults(!showResults);
 	};
 
 	return (
-		<body className='max-w-[960px] h-dvh m-auto bg-slate-500'>
+		<body className=' h-dvh m-auto bg-slate-500'>
 			<h1 className='text-3xl underline'>Poke-choose</h1>
-			<DisplayRow
-				rowHeader='Defense Advantage'
-				pokedex={pokedex}
-				currentOpponent={currentOpponent}
-				condition='attackNotVeryEffectiveAgainst'
-			/>
-			<DisplayRow
-				rowHeader='Attack Advantage'
-				pokedex={pokedex}
-				currentOpponent={currentOpponent}
-				condition='defenseNotVeryEffectiveAgainst'
-			/>
-			<TopPicks
-				pokedex={pokedex}
-				currentOpponent={currentOpponent}
-				condition1={'defenseNotVeryEffectiveAgainst'}
-				condition2={'attackNotVeryEffectiveAgainst'}
-			/>
-			<SelectorSheet
+			<Selector
 				array={pokedex}
 				handleClick={handleSetOpponent}
 				currentOpponent={currentOpponent}
+			/>
+			<ResultsSheet
+				pokedex={pokedex}
+				currentOpponent={currentOpponent}
+				showResults={showResults}
+				handleToggleShowResults={handleToggleShowResults}
 			/>
 		</body>
 	);

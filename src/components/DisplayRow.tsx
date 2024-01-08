@@ -12,7 +12,7 @@ const DisplayRow = ({
 	return (
 		<>
 			<h3>{rowHeader}:</h3>
-			<div className='flex flex-wrap justify-center'>
+			<div className='flex flex-wrap items-center justify-center max-h-1/3'>
 				{displayResults(pokedex, currentOpponent, condition)}
 			</div>
 		</>

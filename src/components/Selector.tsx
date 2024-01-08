@@ -1,19 +1,18 @@
 import React from 'react';
 
-import { SelectorSheetType } from '../types.ts';
+import { SelectorSheet } from '../types.ts';
 import CurrentOpponent from './CurrentOpponent.tsx';
 import Entry from './Entry.tsx';
 import Select from './Select.tsx';
 
-const SelectorSheet = ({
+const Selector = ({
 	array,
 	handleClick,
 	currentOpponent,
-}: SelectorSheetType) => {
+}: SelectorSheet) => {
 	return (
 		<>
-			<CurrentOpponent opponentType={currentOpponent.type} />
-			<div className='bg-yellow-600'>
+			<div className=''>
 				<h3>Choose an opponent type</h3>
 				<div>
 					{array.map((pokemon) => (
@@ -31,4 +30,4 @@ const SelectorSheet = ({
 	);
 };
 
-export default SelectorSheet;
+export default Selector;
