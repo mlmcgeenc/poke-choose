@@ -5,7 +5,7 @@ import Label from './Label.tsx';
 
 const Entry = ({ pokemonType }) => {
 	return (
-		<div className='w-20'>
+		<div className='h-full max-w-32 p-2'>
 			<Icon pokemonType={pokemonType} />
 			<Label pokemonType={pokemonType} />
 		</div>

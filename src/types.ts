@@ -46,7 +46,7 @@ type SelectType = {
 	children: ReactElement;
 };
 
-type SelectorSheetType = {
+type SelectorType = {
 	array: PokedexType;
 	handleClick: (pokemon: PokemonType) => void;
 	currentOpponent: PokemonType;
@@ -78,7 +78,7 @@ export type {
 	PokedexType,
 	PokemonType,
 	PokemonTypesTuple,
-	SelectorSheetType,
+	SelectorType,
 	SelectType,
 	SVGIconPropsType,
 	TopPicksType,

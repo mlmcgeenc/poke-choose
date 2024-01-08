@@ -2,7 +2,9 @@ import React from 'react';
 
 const Label = ({ pokemonType }) => {
 	return (
-		<div className='m-2 px-1 bg-white rounded-sm capitalize'>{pokemonType}</div>
+		<div className='flex mt-2 h-1/5 px-1 bg-white justify-center items-center rounded-lg capitalize'>
+			<span>{pokemonType}</span>
+		</div>
 	);
 };
 
