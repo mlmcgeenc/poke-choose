@@ -32,6 +32,8 @@ type OpponentType = PokemonType;
 
 type CurrentOpponentComponentType = {
 	opponentType: PokemonTypesTuple;
+	showResults: boolean;
+	handleToggleShowResults: (showResults: boolean) => void;
 };
 
 type PokedexType = PokemonType[];
@@ -46,10 +48,9 @@ type SelectType = {
 	children: ReactElement;
 };
 
-type SelectorType = {
+type OpponentSelectorType = {
 	array: PokedexType;
 	handleClick: (pokemon: PokemonType) => void;
-	currentOpponent: PokemonType;
 };
 
 type DisplayRowType = {
@@ -57,6 +58,13 @@ type DisplayRowType = {
 	pokedex: PokedexType;
 	currentOpponent: OpponentType;
 	condition: keyof PokemonType;
+};
+
+type ResultsSheetType = {
+	pokedex: PokedexType;
+	currentOpponent: PokemonType;
+	showResults: boolean;
+	handleToggleShowResults: (showResults: boolean) => void;
 };
 
 type TopPicksType = {
@@ -70,16 +78,21 @@ type SVGIconPropsType = {
 	size: string | number;
 };
 
+type EntryType = {
+  pokemonType: PokemonTypesTuple;
+}
+
 export type {
 	CurrentOpponentComponentType,
 	DisplayRowType,
+	EntryType,
 	IconPropsType,
+	OpponentSelectorType,
 	OpponentType,
 	PokedexType,
 	PokemonType,
 	PokemonTypesTuple,
-	SelectorType,
+	ResultsSheetType,
 	SelectType,
 	SVGIconPropsType,
-	TopPicksType,
-};
+	TopPicksType};

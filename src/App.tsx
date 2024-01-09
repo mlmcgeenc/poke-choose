@@ -3,8 +3,8 @@ import './App.css';
 import React from 'react';
 import { useState } from 'react';
 
+import OpponentSelector from './components/OpponentSelector.tsx';
 import ResultsSheet from './components/ResultsSheet.tsx';
-import Selector from './components/Selector.tsx';
 import pokedex from './data/pokedex';
 import { OpponentType, PokemonType } from './types';
 
@@ -30,10 +30,9 @@ function App() {
 	return (
 		<body className=' h-dvh m-auto bg-slate-500'>
 			<h1 className='text-3xl underline'>Poke-choose</h1>
-			<Selector
+			<OpponentSelector
 				array={pokedex}
 				handleClick={handleSetOpponent}
-				currentOpponent={currentOpponent}
 			/>
 			<ResultsSheet
 				pokedex={pokedex}
