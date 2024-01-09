@@ -2,6 +2,7 @@ import './App.css';
 
 import { useState } from 'react';
 
+import Header from './components/Header.tsx';
 import OpponentSelector from './components/OpponentSelector.tsx';
 import ResultsSheet from './components/ResultsSheet.tsx';
 import pokedex from './data/pokedex';
@@ -27,19 +28,20 @@ function App() {
 	};
 
 	return (
-		<body className=' h-dvh m-auto bg-slate-500'>
-			<h1 className='text-3xl underline'>Poke-choose</h1>
-			<OpponentSelector
-				array={pokedex}
-				handleClick={handleSetOpponent}
-			/>
+		<div className='h-dvh bg-gradient-to-tr from-ui-blue-light to-ui-blue-dark'>
+			<div className={`transition-all duration-150 ${showResults ? 'blur' : ''}`}>
+				<Header />
+				<body className='max-w-[960px] px-4 m-auto'>
+					<OpponentSelector array={pokedex} handleClick={handleSetOpponent} />
+				</body>
+			</div>
 			<ResultsSheet
 				pokedex={pokedex}
 				currentOpponent={currentOpponent}
 				showResults={showResults}
 				handleToggleShowResults={handleToggleShowResults}
 			/>
-		</body>
+		</div>
 	);
 }
 

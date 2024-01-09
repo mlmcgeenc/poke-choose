@@ -6,8 +6,7 @@ const OpponentSelector = ({ array, handleClick }: OpponentSelectorType) => {
 	return (
 		<>
 			<div className=''>
-				<h3>Choose an opponent type</h3>
-				<div>
+				<div className='flex flex-wrap justify-center'>
 					{array.map((pokemon) => (
 						<Select
 							key={`${pokemon.type}-opponent-pick`}

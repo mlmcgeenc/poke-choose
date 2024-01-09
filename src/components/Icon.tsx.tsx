@@ -66,7 +66,7 @@ const Icon = ({ pokemonType }: IconPropsType) => {
 
 	return (
 		<div
-			className={`mx-auto flex justify-center items-center aspect-square h-4/5 ${colorMap[pokemonType]} rounded-full`}
+			className={`mx-auto flex justify-center items-center aspect-square h-4/5 ${colorMap[pokemonType]} rounded-full border-2 border-white`}
 		>
 			{selectedIcon}
 		</div>
