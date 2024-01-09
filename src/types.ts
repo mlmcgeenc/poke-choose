@@ -1,5 +1,43 @@
 import { ReactElement } from 'react';
 
+type CurrentOpponentComponentType = {
+	opponentType: PokemonTypesTuple;
+	showResults: boolean;
+	handleToggleShowResults: (showResults: boolean) => void;
+};
+
+type DisplayRowType = {
+	rowHeader: string;
+	pokedex: PokedexType;
+	currentOpponent: OpponentType;
+	condition: keyof PokemonType;
+};
+
+type EntryType = {
+	pokemonType: PokemonTypesTuple;
+};
+
+type IconPropsType = {
+	pokemonType: PokemonTypesTuple;
+};
+
+type OpponentSelectorType = {
+	array: PokedexType;
+	handleClick: (pokemon: PokemonType) => void;
+};
+
+type OpponentType = PokemonType;
+
+type PokedexType = PokemonType[];
+
+type PokemonType = {
+	type: PokemonTypesTuple;
+	icon: string;
+	attackNotVeryEffectiveAgainst?: PokemonTypesTuple[];
+	defenseNotVeryEffectiveAgainst?: PokemonTypesTuple[];
+	imperviousToAttacksFrom?: PokemonTypesTuple[];
+};
+
 type PokemonTypesTuple =
 	| 'normal'
 	| 'fire'
@@ -20,26 +58,11 @@ type PokemonTypesTuple =
 	| 'steel'
 	| 'fairy';
 
-type PokemonType = {
-	type: PokemonTypesTuple;
-	icon: string;
-	attackNotVeryEffectiveAgainst?: PokemonTypesTuple[];
-	defenseNotVeryEffectiveAgainst?: PokemonTypesTuple[];
-	imperviousToAttacksFrom?: PokemonTypesTuple[];
-};
-
-type OpponentType = PokemonType;
-
-type CurrentOpponentComponentType = {
-	opponentType: PokemonTypesTuple;
+type ResultsSheetType = {
+	pokedex: PokedexType;
+	currentOpponent: PokemonType;
 	showResults: boolean;
 	handleToggleShowResults: (showResults: boolean) => void;
-};
-
-type PokedexType = PokemonType[];
-
-type IconPropsType = {
-	pokemonType: PokemonTypesTuple;
 };
 
 type SelectType = {
@@ -48,23 +71,8 @@ type SelectType = {
 	children: ReactElement;
 };
 
-type OpponentSelectorType = {
-	array: PokedexType;
-	handleClick: (pokemon: PokemonType) => void;
-};
-
-type DisplayRowType = {
-	rowHeader: string;
-	pokedex: PokedexType;
-	currentOpponent: OpponentType;
-	condition: keyof PokemonType;
-};
-
-type ResultsSheetType = {
-	pokedex: PokedexType;
-	currentOpponent: PokemonType;
-	showResults: boolean;
-	handleToggleShowResults: (showResults: boolean) => void;
+type SVGIconPropsType = {
+	size: string | number;
 };
 
 type TopPicksType = {
@@ -73,14 +81,6 @@ type TopPicksType = {
 	condition1: keyof PokemonType;
 	condition2: keyof PokemonType;
 };
-
-type SVGIconPropsType = {
-	size: string | number;
-};
-
-type EntryType = {
-  pokemonType: PokemonTypesTuple;
-}
 
 export type {
 	CurrentOpponentComponentType,
@@ -95,4 +95,5 @@ export type {
 	ResultsSheetType,
 	SelectType,
 	SVGIconPropsType,
-	TopPicksType};
+	TopPicksType,
+};
