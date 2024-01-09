@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { SVGIconPropsType } from '../../types';
 
 const FightingSVG = ({ size }: SVGIconPropsType) => {

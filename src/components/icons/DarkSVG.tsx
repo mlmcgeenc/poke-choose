@@ -1,8 +1,6 @@
-import React from 'react';
-
 import { SVGIconPropsType } from '../../types';
 
-const DarkSVG = ({size}: SVGIconPropsType) => {
+const DarkSVG = ({ size }: SVGIconPropsType) => {
 	return (
 		<svg
 			width={size}
