@@ -1,5 +1,3 @@
-import React from 'react';
-
 const PokeBall = () => {
 	return (
 		<div className='w-16 h-16 relative m-auto bg-slate-200 rounded-full'>
