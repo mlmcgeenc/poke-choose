@@ -1,5 +1,3 @@
-import React from 'react';
-
 import Entry from '../components/Entry.tsx';
 import { PokedexType, PokemonType } from '../types';
 import filteredArray from './filteredArray';
