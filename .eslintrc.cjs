@@ -14,6 +14,7 @@ module.exports = {
 		'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
 		'simple-import-sort/imports': 'error',
 		'simple-import-sort/exports': 'error',
+    'react/jsx-uses-react': 'off',
 		'react/react-in-jsx-scope': 'off',
 		quotes: ['error', 'single'],
 	},
