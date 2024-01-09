@@ -21,6 +21,10 @@ type IconPropsType = {
 	pokemonType: PokemonTypesTuple;
 };
 
+type LabelType = {
+  pokemonType: PokemonTypesTuple;
+}
+
 type OpponentSelectorType = {
 	array: PokedexType;
 	handleClick: (pokemon: PokemonType) => void;
@@ -87,6 +91,7 @@ export type {
 	DisplayRowType,
 	EntryType,
 	IconPropsType,
+	LabelType,
 	OpponentSelectorType,
 	OpponentType,
 	PokedexType,

@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { TopPicksType } from '../types.ts';
 import shouldInclude from '../utils/shouldInclude.ts';
 import Entry from './Entry.tsx';

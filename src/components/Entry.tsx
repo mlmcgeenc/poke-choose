@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { EntryType } from '../types.ts';
 import Icon from './Icon.tsx';
 import Label from './Label.tsx';

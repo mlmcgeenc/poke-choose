@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { IconPropsType } from '../types';
 import BugSVG from './icons/BugSVG';
 import DarkSVG from './icons/DarkSVG';
