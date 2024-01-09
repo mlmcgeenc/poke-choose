@@ -1,15 +1,10 @@
 import React from 'react';
 
-import { SelectorSheet } from '../types.ts';
-import CurrentOpponent from './CurrentOpponent.tsx';
+import { OpponentSelectorType } from '../types.ts';
 import Entry from './Entry.tsx';
 import Select from './Select.tsx';
 
-const Selector = ({
-	array,
-	handleClick,
-	currentOpponent,
-}: SelectorSheet) => {
+const OpponentSelector = ({ array, handleClick }: OpponentSelectorType) => {
 	return (
 		<>
 			<div className=''>
@@ -30,4 +25,4 @@ const Selector = ({
 	);
 };
 
-export default Selector;
+export default OpponentSelector;

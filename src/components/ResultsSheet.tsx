@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { ResultsSheetType } from '../types';
 import CurrentOpponent from './CurrentOpponent';
 import DisplayRow from './DisplayRow';
 import TopPicks from './TopPicks';
@@ -9,12 +10,12 @@ const ResultsSheet = ({
 	currentOpponent,
 	showResults,
 	handleToggleShowResults,
-}) => {
+}: ResultsSheetType) => {
 	return (
 		<div
 			className={`${
-				showResults ? '' : 'translate-y-full ease-in duration-150'
-			} bg-slate-700 fixed transform transition-all top-0 w-full h-full`}
+				showResults ? '' : 'translate-y-full ease-in'
+			} bg-slate-700 fixed transform transition-all top-0 w-full h-full duration-200`}
 		>
 			<CurrentOpponent
 				opponentType={currentOpponent.type}
