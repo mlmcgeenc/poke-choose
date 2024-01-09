@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { ResultsSheetType } from '../types';
 import CurrentOpponent from './CurrentOpponent';
 import DisplayRow from './DisplayRow';

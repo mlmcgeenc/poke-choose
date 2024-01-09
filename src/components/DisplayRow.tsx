@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { DisplayRowType } from '../types';
 import displayResults from '../utils/displayResults';
 

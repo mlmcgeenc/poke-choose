@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { SelectType } from '../types';
 
 const Select = ({ handleClick, pokemon, children }: SelectType) => {

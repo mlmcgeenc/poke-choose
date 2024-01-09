@@ -1,5 +1,3 @@
-import React from 'react';
-
 import { OpponentSelectorType } from '../types.ts';
 import Entry from './Entry.tsx';
 import Select from './Select.tsx';
