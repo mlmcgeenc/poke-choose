@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .test {
+    border: 1px solid magenta;
+    background-color: rgba(255, 0, 255, 0.3);
+  }
+}
