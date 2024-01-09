@@ -9,7 +9,7 @@ const displayResults = (
 ) => (
 	<>
 		{filteredArray(array, opponent, condition).map((item) => (
-			<div key={`${item.type}-${condition}`} className='w-1/4 p-2'>
+			<div key={`${item.type}-${condition}`}className='w-1/4 p-2'>
 				<Entry pokemonType={item.type} />
 			</div>
 		))}

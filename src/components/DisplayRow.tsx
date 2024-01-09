@@ -8,12 +8,12 @@ const DisplayRow = ({
 	condition,
 }: DisplayRowType) => {
 	return (
-		<>
-			<h3>{rowHeader}:</h3>
-			<div className='flex flex-wrap items-center justify-center max-h-1/3'>
+		<div className='h-1/5'>
+			<h3 className='text-white ml-4 font-bold text-left h-1/6'>{rowHeader}:</h3>
+			<div className='flex items-center justify-center h-5/6 px-10'>
 				{displayResults(pokedex, currentOpponent, condition)}
 			</div>
-		</>
+		</div>
 	);
 };
 

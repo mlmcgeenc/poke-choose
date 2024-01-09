@@ -29,16 +29,18 @@ function App() {
 
 	return (
 		<div className='h-dvh bg-gradient-to-tr from-ui-blue-light to-ui-blue-dark'>
-			<Header />
-			<body className='max-w-[960px] px-4 m-auto'>
-				<OpponentSelector array={pokedex} handleClick={handleSetOpponent} />
-				<ResultsSheet
-					pokedex={pokedex}
-					currentOpponent={currentOpponent}
-					showResults={showResults}
-					handleToggleShowResults={handleToggleShowResults}
-				/>
-			</body>
+			<div className={`transition-all duration-150 ${showResults ? 'blur' : ''}`}>
+				<Header />
+				<body className='max-w-[960px] px-4 m-auto'>
+					<OpponentSelector array={pokedex} handleClick={handleSetOpponent} />
+				</body>
+			</div>
+			<ResultsSheet
+				pokedex={pokedex}
+				currentOpponent={currentOpponent}
+				showResults={showResults}
+				handleToggleShowResults={handleToggleShowResults}
+			/>
 		</div>
 	);
 }
