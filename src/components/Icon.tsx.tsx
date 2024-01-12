@@ -18,6 +18,7 @@ import PsychicSVG from './icons/PsychicSVG';
 import RockSVG from './icons/RockSVG';
 import SteelSVG from './icons/SteelSVG';
 import WaterSVG from './icons/WaterSVG';
+import IsImmune from './IsImmune';
 
 const iconMap = {
 	bug: <BugSVG size={'60%'} />,
@@ -61,7 +62,7 @@ const colorMap = {
 	water: 'bg-water-blue',
 };
 
-const Icon = ({ pokemonType }: IconPropsType) => {
+const Icon = ({ pokemonType, immunity, currentOpponent }: IconPropsType) => {
 	const selectedIcon = iconMap[pokemonType] || <PokeBall />;
 
 	return (
@@ -69,6 +70,7 @@ const Icon = ({ pokemonType }: IconPropsType) => {
 			className={`mx-auto flex justify-center items-center aspect-square ${colorMap[pokemonType]} rounded-full border-2 border-white h-4/6`}
 		>
 			{selectedIcon}
+			<IsImmune immunity={immunity} currentOpponent={currentOpponent} />
 		</div>
 	);
 };

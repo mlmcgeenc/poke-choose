@@ -22,11 +22,13 @@ type DisplayRowType = {
 
 type IconPropsType = {
 	pokemonType: PokemonTypesTuple;
+	immunity?: PokemonTypesTuple[];
+  currentOpponent?: PokemonType; 
 };
 
 type IsImmuneType = {
 	immunity?: PokemonTypesTuple[];
-  currentOpponent: PokemonType;
+  currentOpponent?: PokemonType;
 };
 
 type LabelType = {
@@ -70,6 +72,8 @@ type PokemonTypesTuple =
 
 type ResultEntryType = {
 	pokemonType: PokemonTypesTuple;
+  immunity?: PokemonTypesTuple[];
+  currentOpponent: PokemonType;
 };
 
 type ResultsSheetType = {

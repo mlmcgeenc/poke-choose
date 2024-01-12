@@ -1,6 +1,5 @@
 import { DisplayResultsType } from '../types.ts';
 import filteredArray from '../utils/filteredArray.ts';
-import IsImmune from './IsImmune.tsx';
 import Entry from './ResultEntry.tsx';
 
 const DisplayResults = ({
@@ -13,11 +12,7 @@ const DisplayResults = ({
 	return(	<div className='flex flex-row py-4 h-full overflow-x-auto'>
 		{workingArray.map((item) => (
 			<div key={`${item.type}-${condition}`} className='h-full relative'>
-				<Entry pokemonType={item.type} />
-				<IsImmune
-					immunity={item.imperviousToAttacksFrom}
-					currentOpponent={currentOpponent}
-				/>
+				<Entry pokemonType={item.type} immunity={item.imperviousToAttacksFrom} currentOpponent={currentOpponent}/>
 			</div>
 		))}
 	</div>);
