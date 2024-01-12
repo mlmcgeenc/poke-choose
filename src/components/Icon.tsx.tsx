@@ -67,7 +67,7 @@ const Icon = ({ pokemonType, immunity, currentOpponent }: IconPropsType) => {
 
 	return (
 		<div
-			className={`mx-auto flex justify-center items-center aspect-square ${colorMap[pokemonType]} rounded-full border-2 border-white h-4/6`}
+			className={`mx-auto relative flex justify-center items-center aspect-square ${colorMap[pokemonType]} rounded-full border-2 border-white h-4/6`}
 		>
 			{selectedIcon}
 			<IsImmune immunity={immunity} currentOpponent={currentOpponent} />
