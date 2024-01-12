@@ -6,10 +6,10 @@ import Header from './components/Header.tsx';
 import OpponentSelector from './components/OpponentSelector.tsx';
 import ResultsSheet from './components/ResultsSheet.tsx';
 import pokedex from './data/pokedex';
-import { OpponentType, PokemonType } from './types';
+import { PokemonType } from './types';
 
 function App() {
-	const [currentOpponent, setCurrentOpponent] = useState<OpponentType>({
+	const [currentOpponent, setCurrentOpponent] = useState<PokemonType>({
 		type: 'normal',
 		icon: '',
 		attackNotVeryEffectiveAgainst: ['rock', 'steel'],

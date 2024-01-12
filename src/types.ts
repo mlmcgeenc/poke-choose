@@ -16,12 +16,8 @@ type DisplayResultsType = {
 type DisplayRowType = {
 	rowHeader: string;
 	pokedex: PokedexType;
-	currentOpponent: OpponentType;
+	currentOpponent: PokemonType;
 	condition: keyof PokemonType;
-};
-
-type ResultEntryType = {
-	pokemonType: PokemonTypesTuple;
 };
 
 type IconPropsType = {
@@ -29,15 +25,13 @@ type IconPropsType = {
 };
 
 type LabelType = {
-  pokemonType: PokemonTypesTuple;
-}
+	pokemonType: PokemonTypesTuple;
+};
 
 type OpponentSelectorType = {
 	array: PokedexType;
 	handleClick: (pokemon: PokemonType) => void;
 };
-
-type OpponentType = PokemonType;
 
 type PokedexType = PokemonType[];
 
@@ -68,6 +62,10 @@ type PokemonTypesTuple =
 	| 'dark'
 	| 'steel'
 	| 'fairy';
+
+  type ResultEntryType = {
+		pokemonType: PokemonTypesTuple;
+	};
 
 type ResultsSheetType = {
 	pokedex: PokedexType;
@@ -100,7 +98,6 @@ export type {
 	IconPropsType,
 	LabelType,
 	OpponentSelectorType,
-	OpponentType,
 	PokedexType,
 	PokemonType,
 	PokemonTypesTuple,
