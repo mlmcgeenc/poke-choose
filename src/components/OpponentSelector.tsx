@@ -1,22 +1,22 @@
 import { OpponentSelectorType } from '../types.ts';
-import Entry from './Entry.tsx';
-import Select from './Select.tsx';
+import Icon from './Icon.tsx.tsx';
+import Label from './Label.tsx';
+import SelectEntry from './SelectEntry.tsx';
 
 const OpponentSelector = ({ array, handleClick }: OpponentSelectorType) => {
 	return (
 		<>
-			<div className=''>
-				<div className='flex flex-wrap justify-center'>
-					{array.map((pokemon) => (
-						<Select
-							key={`${pokemon.type}-opponent-pick`}
-							handleClick={handleClick}
-							pokemon={pokemon}
-						>
-							<Entry pokemonType={pokemon.type} />
-						</Select>
-					))}
-				</div>
+			<div className='flex flex-wrap justify-center p-4'>
+				{array.map((pokemon) => (
+					<SelectEntry
+						key={`${pokemon.type}-opponent-pick`}
+						handleClick={handleClick}
+						pokemon={pokemon}
+					>
+						<Icon pokemonType={pokemon.type} />
+						<Label pokemonType={pokemon.type} />
+					</SelectEntry>
+				))}
 			</div>
 		</>
 	);

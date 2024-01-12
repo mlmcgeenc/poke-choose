@@ -7,7 +7,7 @@ const CurrentOpponent = ({
 	handleToggleShowResults,
 }: CurrentOpponentComponentType) => {
 	return (
-		<div className='bg-ui-violet w-full flex items-center justify-between p-2'>
+		<div className='bg-ui-violet w-full flex items-center justify-between px-4 py-2'>
 			<div className='flex items-center'>
 				<h2 className='text-white font-bold'>Current Opponent:</h2>
 				<div className='w-1/12 mx-2'>

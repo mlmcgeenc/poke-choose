@@ -1,10 +1,10 @@
 import { EntryType } from '../types.ts';
-import Icon from './Icon.tsx';
+import Icon from './Icon.tsx.tsx';
 import Label from './Label.tsx';
 
 const Entry = ({ pokemonType }: EntryType) => {
 	return (
-		<div className='h-full'>
+		<div className='h-full px-2'>
 			<Icon pokemonType={pokemonType} />
 			<Label pokemonType={pokemonType} />
 		</div>

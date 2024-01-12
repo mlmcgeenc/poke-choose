@@ -2,8 +2,8 @@ import { LabelType } from '../types';
 
 const Label = ({ pokemonType }: LabelType) => {
 	return (
-		<div className='flex mt-2 h-1/5 px-1 bg-white justify-center items-center rounded-lg capitalize'>
-			<span>{pokemonType}</span>
+		<div className='flex justify-center items-center bg-white rounded-lg capitalize text-sm  mt-2 min-h-1/6'>
+			{pokemonType}
 		</div>
 	);
 };

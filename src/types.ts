@@ -69,10 +69,10 @@ type ResultsSheetType = {
 	handleToggleShowResults: (showResults: boolean) => void;
 };
 
-type SelectType = {
+type SelectEntryType = {
 	handleClick: (pokemon: PokemonType) => void;
 	pokemon: PokemonType;
-	children: ReactElement;
+	children: ReactElement[];
 };
 
 type SVGIconPropsType = {
@@ -98,7 +98,7 @@ export type {
 	PokemonType,
 	PokemonTypesTuple,
 	ResultsSheetType,
-	SelectType,
+	SelectEntryType,
 	SVGIconPropsType,
 	TopPicksType,
 };

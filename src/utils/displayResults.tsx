@@ -1,4 +1,6 @@
-import Entry from '../components/Entry.tsx';
+import { ClassNames } from '@emotion/react';
+
+import Entry from '../components/ResultEntry.tsx';
 import { PokedexType, PokemonType } from '../types';
 import filteredArray from './filteredArray';
 
@@ -9,7 +11,7 @@ const displayResults = (
 ) => (
 	<>
 		{filteredArray(array, opponent, condition).map((item) => (
-			<div key={`${item.type}-${condition}`}className='w-1/4 p-2'>
+			<div key={`${item.type}-${condition}`} className='h-full'>
 				<Entry pokemonType={item.type} />
 			</div>
 		))}
