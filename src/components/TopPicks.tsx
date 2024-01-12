@@ -1,6 +1,6 @@
 import { TopPicksType } from '../types.ts';
 import shouldInclude from '../utils/shouldInclude.ts';
-import Entry from './ResultEntry.tsx';
+import ResultEntry from './ResultEntry.tsx';
 
 const TopPicks = ({
 	pokedex,
@@ -15,7 +15,7 @@ const TopPicks = ({
 				shouldInclude(item, currentOpponent, condition1) &&
 				shouldInclude(item, currentOpponent, condition2) ? (
 						<div className='max-h-full max-w-52 flex' key={`${item.type}-top-pick`}>
-							<Entry pokemonType={item.type} />
+							<ResultEntry pokemonType={item.type} />
 						</div>
 					) : null
 			)}
