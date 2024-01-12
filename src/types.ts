@@ -13,7 +13,8 @@ type DisplayResultsType = {
 };
 
 type DisplayRowType = {
-	rowHeader: string;
+	header: string;
+  icon: React.ReactNode;
 	pokedex: PokedexType;
 	currentOpponent: PokemonType;
 	condition: keyof PokemonType;
@@ -84,6 +85,8 @@ type SVGIconPropsType = {
 };
 
 type TopPicksType = {
+	header: string;
+	icon: React.ReactNode;
 	pokedex: PokedexType;
 	currentOpponent: PokemonType;
 	condition1: keyof PokemonType;

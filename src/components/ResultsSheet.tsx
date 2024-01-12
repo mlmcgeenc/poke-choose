@@ -1,7 +1,14 @@
+import { faAward, faBoltLightning, faShield } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import { ResultsSheetType } from '../types';
 import CurrentOpponent from './CurrentOpponent';
 import ResultRow from './ResultRow';
 import TopPicks from './TopPicks';
+
+const lightning = <FontAwesomeIcon icon={faBoltLightning} />;
+const shield = <FontAwesomeIcon icon={faShield} />;
+const ribbon = <FontAwesomeIcon icon={faAward} />;
 
 const ResultsSheet = ({
 	pokedex,
@@ -23,6 +30,8 @@ const ResultsSheet = ({
 			<div className='max-w-[960px] w-full m-auto flex flex-col p-4 overflow-y-auto grow'>
 				<div className='h-1/2'>
 					<TopPicks
+						header='Top Pick'
+						icon={ribbon}
 						pokedex={pokedex}
 						currentOpponent={currentOpponent}
 						condition1={'defenseNotVeryEffectiveAgainst'}
@@ -31,13 +40,15 @@ const ResultsSheet = ({
 				</div>
 				<div className='h-1/2'>
 					<ResultRow
-						rowHeader='Defense Advantage'
+						header='Defense Advantage'
+						icon={shield}
 						pokedex={pokedex}
 						currentOpponent={currentOpponent}
 						condition='attackNotVeryEffectiveAgainst'
 					/>
 					<ResultRow
-						rowHeader='Attack Advantage'
+						header='Attack Advantage'
+						icon={lightning}
 						pokedex={pokedex}
 						currentOpponent={currentOpponent}
 						condition='defenseNotVeryEffectiveAgainst'
