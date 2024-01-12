@@ -24,6 +24,11 @@ type IconPropsType = {
 	pokemonType: PokemonTypesTuple;
 };
 
+type IsImmuneType = {
+	immunity?: PokemonTypesTuple[];
+  currentOpponent: PokemonType;
+};
+
 type LabelType = {
 	pokemonType: PokemonTypesTuple;
 };
@@ -98,6 +103,7 @@ export type {
 	DisplayResultsType,
 	DisplayRowType,
 	IconPropsType,
+	IsImmuneType,
 	LabelType,
 	OpponentSelectorType,
 	PokedexType,

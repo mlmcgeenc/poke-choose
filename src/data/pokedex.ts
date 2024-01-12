@@ -124,7 +124,7 @@ const pokedex: PokedexType = [
 	{
 		type: 'dragon',
 		icon: '',
-		attackNotVeryEffectiveAgainst: ['steel'],
+		attackNotVeryEffectiveAgainst: ['steel', 'fairy'],
 		defenseNotVeryEffectiveAgainst: ['ice', 'dragon', 'fairy'],
 		imperviousToAttacksFrom: [],
 	},

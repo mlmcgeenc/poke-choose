@@ -1,19 +1,26 @@
 import { DisplayResultsType } from '../types.ts';
 import filteredArray from '../utils/filteredArray.ts';
+import IsImmune from './IsImmune.tsx';
 import Entry from './ResultEntry.tsx';
 
 const DisplayResults = ({
 	pokedex,
 	currentOpponent,
 	condition,
-}: DisplayResultsType) => (
-	<div className='flex flex-row py-4 h-full overflow-x-auto'>
-		{filteredArray(pokedex, currentOpponent, condition).map((item) => (
-			<div key={`${item.type}-${condition}`} className='h-full'>
+}: DisplayResultsType) => {
+	const workingArray = filteredArray(pokedex, currentOpponent, condition);
+
+	return(	<div className='flex flex-row py-4 h-full overflow-x-auto'>
+		{workingArray.map((item) => (
+			<div key={`${item.type}-${condition}`} className='h-full relative'>
 				<Entry pokemonType={item.type} />
+				<IsImmune
+					immunity={item.imperviousToAttacksFrom}
+					currentOpponent={currentOpponent}
+				/>
 			</div>
 		))}
-	</div>
-);
+	</div>);
+};
 
 export default DisplayResults;
