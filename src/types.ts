@@ -12,7 +12,6 @@ type DisplayResultsType = {
 	condition: keyof PokemonType;
 };
 
-
 type DisplayRowType = {
 	rowHeader: string;
 	pokedex: PokedexType;
@@ -63,9 +62,9 @@ type PokemonTypesTuple =
 	| 'steel'
 	| 'fairy';
 
-  type ResultEntryType = {
-		pokemonType: PokemonTypesTuple;
-	};
+type ResultEntryType = {
+	pokemonType: PokemonTypesTuple;
+};
 
 type ResultsSheetType = {
 	pokedex: PokedexType;
