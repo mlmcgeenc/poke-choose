@@ -6,6 +6,13 @@ type CurrentOpponentComponentType = {
 	handleToggleShowResults: (showResults: boolean) => void;
 };
 
+type DisplayResultsType = {
+	pokedex: PokedexType;
+	currentOpponent: PokemonType;
+	condition: keyof PokemonType;
+};
+
+
 type DisplayRowType = {
 	rowHeader: string;
 	pokedex: PokedexType;
@@ -13,7 +20,7 @@ type DisplayRowType = {
 	condition: keyof PokemonType;
 };
 
-type EntryType = {
+type ResultEntryType = {
 	pokemonType: PokemonTypesTuple;
 };
 
@@ -88,8 +95,8 @@ type TopPicksType = {
 
 export type {
 	CurrentOpponentComponentType,
+	DisplayResultsType,
 	DisplayRowType,
-	EntryType,
 	IconPropsType,
 	LabelType,
 	OpponentSelectorType,
@@ -97,6 +104,7 @@ export type {
 	PokedexType,
 	PokemonType,
 	PokemonTypesTuple,
+	ResultEntryType,
 	ResultsSheetType,
 	SelectEntryType,
 	SVGIconPropsType,
