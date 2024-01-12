@@ -6,7 +6,8 @@ import SelectEntry from './SelectEntry.tsx';
 const OpponentSelector = ({ array, handleClick }: OpponentSelectorType) => {
 	return (
 		<>
-			<div className='flex flex-wrap justify-center p-4'>
+			{/* <div className='max-w-[960px] m-auto'> */}
+			<div className='max-w-[960px] m-auto flex flex-wrap justify-center p-4'>
 				{array.map((pokemon) => (
 					<SelectEntry
 						key={`${pokemon.type}-opponent-pick`}
@@ -18,6 +19,7 @@ const OpponentSelector = ({ array, handleClick }: OpponentSelectorType) => {
 					</SelectEntry>
 				))}
 			</div>
+			{/* </div> */}
 		</>
 	);
 };

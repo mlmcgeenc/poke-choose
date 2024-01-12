@@ -31,9 +31,7 @@ function App() {
 		<div className='min-h-full bg-gradient-to-tr from-ui-blue-light to-ui-blue-dark z-0'>
 			<div className={`transition-all duration-150 ${showResults ? 'blur' : ''}`}>
 				<Header />
-				<div className='max-w-[960px] m-auto'>
-					<OpponentSelector array={pokedex} handleClick={handleSetOpponent} />
-				</div>
+				<OpponentSelector array={pokedex} handleClick={handleSetOpponent} />
 			</div>
 			<ResultsSheet
 				pokedex={pokedex}
